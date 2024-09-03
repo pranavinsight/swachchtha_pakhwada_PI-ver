@@ -1,0 +1,91 @@
+nav {
+    background-color: rgb(27, 181, 43);
+    padding-bottom: 1em;
+    display: flex;
+    justify-content: center; /* Center the nav items */
+    position: relative;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 70px;
+    height: 70px;
+    z-index: 9;
+    position: relative; /* Add position relative to align .active */
+}
+
+li {
+    padding: 5px;
+    position: relative;
+}
+
+li a {
+    display: block;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.active {
+    background: rgb(255, 255, 255);
+    width: 5rem;
+    height: 47px;
+    position: absolute;
+    z-index: -1;
+    top: 1.5em; 
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgb(255, 255, 255);
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+    display: none;
+}
+
+.navlinks li:hover a {
+    color: brown;
+}
+
+.navlinks li:hover a img {
+    filter: brightness(0) invert(0);
+}
+
+/* Flexbox + CSS variables to align the active bar */
+.navlinks {
+    display:flex;
+    position: relative;
+}
+
+.navlinks li {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.navlinks li:hover ~ .active {
+    width: auto; /* Make the bar's width adapt to the hovered item */
+    left: calc(2em * var(--i));
+    display:flex; /* Adjusts to the width of the item */
+}
+
+.navlinks li:nth-child(1):hover ~ .active {
+    --i: 0;
+}
+
+.navlinks li:nth-child(2):hover ~ .active {
+    --i: 1;
+}
+
+.navlinks li:nth-child(3):hover ~ .active {
+    --i: 2;
+}
+
+.navlinks li:nth-child(4):hover ~ .active {
+    --i: 3;
+}
+
